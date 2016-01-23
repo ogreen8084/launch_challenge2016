@@ -4,27 +4,27 @@ class CircularBuffer
   class BufferFullException < StandardError; end
 
   def initialize(size)
-    @loc = []
+    @buffer = []
     @buffer_size = size
   end
 
   def write(val)
-    fail BufferFullException if @loc.size + 1 > @buffer_size
-    @loc.push(val) unless val.nil?
+    fail BufferFullException if @buffer.size + 1 > @buffer_size
+    @buffer.push(val) unless val.nil?
   end
 
   def read
-    fail BufferEmptyException if @loc.size == 0
-    @loc.shift
+    fail BufferEmptyException if @buffer.size == 0
+    @buffer.shift
   end
 
   def clear
-    @loc = []
+    @buffer = []
   end
 
   def write!(val)
     return if val.nil?
-    @loc.shift if @buffer_size < @loc.size + 1
-    @loc.push(val)
+    @buffer.shift if @buffer_size < @buffer.size + 1
+    @buffer.push(val)
   end
 end
