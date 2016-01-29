@@ -1,7 +1,7 @@
 # grade_school launchschool challenge
 class School
   def initialize
-    @grade_hash = {}
+    @grade_hash = Hash.new()
   end
 
   def add(student, grade)
@@ -12,8 +12,16 @@ class School
     @grade_hash[grade] ? @grade_hash[grade] : []
   end
 
-  def to_h
+  def sort_hash_values
     @grade_hash.values.each(&:sort!)
-    Hash[@grade_hash.sort]
+  end
+
+  def sort_hash_keys
+    sort_hash_values
+    Hash[@grade_hash.sort]    
+  end
+
+  def to_h
+    sort_hash_keys  
   end
 end
