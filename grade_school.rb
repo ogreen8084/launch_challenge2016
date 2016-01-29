@@ -16,12 +16,12 @@ class School
     @grade_hash.values.each(&:sort!)
   end
 
-  def sort_hash_keys
+  def sort_hash
     sort_hash_values
     Hash[@grade_hash.sort]    
   end
 
   def to_h
-    sort_hash_keys  
+    sort_hash
   end
 end
