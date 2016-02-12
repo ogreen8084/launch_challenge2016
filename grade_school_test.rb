@@ -1,5 +1,5 @@
 require 'minitest/autorun'
-require_relative 'grade_school'
+require_relative 'grade_school2'
 
 class SchoolTest < Minitest::Test
   attr_reader :school
