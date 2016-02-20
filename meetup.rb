@@ -1,5 +1,4 @@
 require 'date'
-require 'time'
 
 # meetup challenge
 class Meetup
